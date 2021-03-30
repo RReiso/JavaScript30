@@ -58,7 +58,8 @@ body::before {
   border: 2px solid aliceblue;
   border-radius: 3px;
   cursor:pointer;
-  transition: all .07s ease;
+  text-shadow: 0 0 .5rem rgb(145, 140, 140);
+  transition: all 0.1s ease;
 }
 
 .key:hover{
@@ -68,16 +69,13 @@ box-shadow: 0 0 1rem #f1e287;
 .sound {
   font-size: 1rem;
   text-transform: uppercase;
-  /* letter-spacing: .1rem; */
   color: #f1e287;
   padding-top: 0.25rem;
   font-weight: 600;
 }
 
-
-
 .playing {
   transform: scale(1.1);
   border-color: #f1e287;
   box-shadow: 0 0 1rem #f1e287;
-}
+} 
