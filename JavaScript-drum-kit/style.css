@@ -30,7 +30,7 @@ body::before {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	animation: zoomInOut 40s linear infinite;
+	animation: zoomInOut 20s linear infinite;
 }
 
 @keyframes zoomInOut {
