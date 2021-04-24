@@ -1,0 +1,64 @@
+/* || GENERAL STYLES*/
+
+:root {
+	--base: #17c6f1;
+	--spacing: 10px;
+	--blur: 10px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #443c43;
+	color: white;
+	font-family: "helvetica neue", sans-serif;
+	font-weight: 100;
+}
+
+h1 {
+	margin: 2rem 1rem 1rem;
+	text-align: center;
+	font-size: 3rem;
+}
+
+.hl {
+	color: var(--base);
+}
+
+/* || CONTROLS */
+
+.controls {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 1rem;
+	font-size: 2rem;
+}
+
+.controls label {
+	margin: 0.25rem 0.5rem 0.25rem 1rem;
+}
+
+/* || IMAGE */
+
+img {
+	display: block;
+	margin: 0 auto;
+	padding: var(--spacing);
+	filter: blur(var(--blur));
+	max-width: 90%;
+	border: 1px solid white;
+	border-radius: 74% 26% 55% 45% / 30% 43% 57% 70%;
+	background-color: var(--base);
+}
+
+/* || MEDIA */
+
+@media (max-width: 37.5em) {
+	.controls {
+		flex-direction: column;
+	}
+}
