@@ -6,7 +6,8 @@ window.addEventListener("keydown", (e) => {
 	playSound(audio, key);
 });
 
-window.addEventListener("mousedown", findClickedElements);//for desktop, triggers also with left and middle mouse button.
+window.addEventListener("click", findClickedElements);
+
 window.addEventListener("touchstart", findClickedElements, false); //for touchscreens, "click" event does not work on Safari if the element is "div"
 
 function findClickedElements(e) {
@@ -33,3 +34,7 @@ function removeTransition(e){
 	this.classList.remove("playing"); //remove class once the longest transition (here:transform) has finished transitioning. "this" referes to key.
 }
 
+//prevent mousedown event on mobile devices:
+window.addEventListener("touchend", (event) => {
+	event.preventDefault();
+});
