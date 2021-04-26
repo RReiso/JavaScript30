@@ -40,7 +40,11 @@ body::before {
 }
 
 /* || KEYS */
-
+button{
+  background-color: rgba(0, 0, 255, 0);
+  color: aliceblue;
+  font-size: 2rem;
+}
 .keys {
 	position: absolute;
 	top: 50%;
