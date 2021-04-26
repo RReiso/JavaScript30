@@ -29,11 +29,12 @@ function removeTransition(e){
 	this.classList.remove("playing"); //remove class once the longest transition (here:transform) has finished transitioning. "this" referes to key.
 }
 
-// a = document.querySelector(".key");
-// console.log(a);
 
+window.addEventListener("click", touchStart);
 window.addEventListener("touchstart", touchStart, false);
-console.log("jauns");
+
+console.log("jauns2");
+
 function touchStart(e) {
 	clicked = e.target.closest(".key");
 	if (!clicked) return;
