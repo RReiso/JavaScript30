@@ -5,17 +5,17 @@ window.addEventListener("keydown", (e) => {
 	playSound(audio, key);
 });
 
-window.addEventListener("click", (e) => {
-	clicked = e.target.closest(".key");
-	if (!clicked) return;
-	const audio = document.querySelector(
-		`audio[data-key="${clicked.getAttribute("data-key")}"]`
-	);
-	const key = document.querySelector(
-		`.key[data-key="${clicked.getAttribute("data-key")}"]`
-	);
-  playSound(audio,key);
-});
+// window.addEventListener("click", (e) => {
+// 	clicked = e.target.closest(".key");
+// 	if (!clicked) return;
+// 	const audio = document.querySelector(
+// 		`audio[data-key="${clicked.getAttribute("data-key")}"]`
+// 	);
+// 	const key = document.querySelector(
+// 		`.key[data-key="${clicked.getAttribute("data-key")}"]`
+// 	);
+//   playSound(audio,key);
+// });
 
 function playSound(audio, key) {
 	audio.currentTime = 0; //if audio is playing, set it back to 0.
@@ -27,4 +27,22 @@ function playSound(audio, key) {
 function removeTransition(e){
 	if (e.propertyName != "transform") return;
 	this.classList.remove("playing"); //remove class once the longest transition (here:transform) has finished transitioning. "this" referes to key.
+}
+
+a = document.querySelector(".key");
+console.log(a);
+
+a.addEventListener("touchstart", touchStart, false);
+
+function touchStart() {
+  console.log(this);
+	// clicked = e.target.closest(".key");
+	// if (!clicked) return;
+	const audio = document.querySelector(
+		`audio[data-key="${this.getAttribute("data-key")}"]`
+	);
+	const key = document.querySelector(
+		`.key[data-key="${this.getAttribute("data-key")}"]`
+	);
+	playSound(audio, key);
 }
