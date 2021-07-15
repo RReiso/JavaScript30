@@ -80,7 +80,7 @@ body {
 	transform: translateY(0);
 }
 
-@media (max-width: 43em) {
+@media (max-width: 53em) {
 	.panel {
 		font-size: 1rem;
 	}
