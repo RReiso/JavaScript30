@@ -1,5 +1,7 @@
 body {
 	margin: 0;
+	color: rgb(255, 255, 255);
+	font-weight: 900;
 }
 
 *,
@@ -16,15 +18,33 @@ body {
 
 .panel {
 	flex: 1;
-	transition: flex 0.8s cubic-bezier(0.8, -0.1, 0.5, -0.11);
 	display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	flex-direction: column;
+	/* What will transition and how */
+	transition: font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+		flex 0.8s cubic-bezier(0.8, -0.1, 0.5, -0.11);
+	justify-content: center;
+	align-items: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	text-shadow: 20px 20px 24px rgba(7, 7, 7, 0.72),
+		0 0 14px rgba(22, 22, 22, 0.747);
+	font-size: 2rem;
+}
+
+.panel p {
+	background-color: rgb(83, 134, 134);
+	padding: 0.12rem 0.25rem;
+	border-radius: 5px;
 }
 
 .panel.open {
 	flex: 5;
+	font-size: 3rem;
 }
 
 .panel1 {
@@ -42,4 +62,29 @@ body {
 
 .panel5 {
 	background-image: url(./images/5.jpg);
+}
+.panel > * {
+	transition: transform 0.3s;
+}
+
+.panel > *:first-child {
+	transform: translateY(-100vw);
+}
+.panel.open-active > *:first-child {
+	transform: translateY(0);
+}
+.panel > *:last-child {
+	transform: translateY(100vw);
+}
+.panel.open-active > *:last-child {
+	transform: translateY(0);
+}
+
+@media (max-width: 43em) {
+	.panel {
+		font-size: 1rem;
+	}
+	.panel.open {
+		font-size: 1rem;
+	}
 }
