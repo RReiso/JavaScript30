@@ -8,7 +8,7 @@
 			.then((data) => {
 				cities=[...data._links["ua:item"]]
 			
-        console.log(cities)
+        // console.log(cities)
 			});
      
 
@@ -28,7 +28,7 @@
 
       function displayMatches() {
 				const matchArray = findMatches(this.value, cities);
-        console.log(matchArray);
+        // console.log(matchArray);
 				const html = matchArray.map((city) => {
 						const regex = new RegExp(this.value, "gi");
 						const cityName = city.name.replace(
@@ -38,24 +38,35 @@
 						
 						return `
       <li>
-        <span class="name">${cityName}</span>
+        <span class="name" data-city="${city.name}">${cityName}</span>
       
       </li>
     `;
 					})
 					.join("");
 				suggestions.innerHTML = html;
+      //    let all_suggestions = document.querySelectorAll("li");
+      //    all_suggestions.forEach(el =>{
+      //      el.addEventListener("click", displayCityInfo);
+			// }
+      //    )
+    }
+
+      function displayCityInfo(event) {
+				suggestions.innerHTML = "";
+				const clickedElement = event.target.closest("li");
+				console.log(clickedElement);
+				let cityName = clickedElement
+					.querySelector(".name")
+					.getAttribute("data-city").toLowerCase().split(" ").join("-");
+				console.log(cityName);
+
+				fetch(
+					`https://api.teleport.org/api/urban_areas/slug:${cityName}/images/`
+				)
+					.then((response) => response.json())
+					.then((data) => {
+						console.log(data.photos[0].image.mobile);
+
+					});
 			}
-
-      function displayCityInfo() {
-        let city = document.querySelector(".name");
-        console.log(city)
-        suggestions.innerHTML = "";
-// fetch(this.)
-// 	.then((response) => response.json())
-// 	.then((data) => {
-// 		cities = [...data._links["ua:item"]];
-
-// 		console.log(cities);
-// 	});
-      }
