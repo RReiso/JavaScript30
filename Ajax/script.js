@@ -12,6 +12,7 @@ const searchInput = document.querySelector(".search");
 const suggestions = document.querySelector(".suggestions");
 let image = document.querySelector("img");
 let cityTitle = document.querySelector(".city-title");
+let err = document.querySelector(".error");
 
 // searchInput.addEventListener("change", displayMatches);
 suggestions.addEventListener("click", displayCityInfo);
@@ -82,12 +83,12 @@ async function getCityImage(cityName) {
     await fetch(`${URI}slug:${cityName}/images/`)
       .then((response) => response.json())
       .then((data) => {
+        err.innerHTML = "";
         image.setAttribute("src", data.photos[0].image.mobile);
         image.setAttribute("alt", `${cityName}`);
       });
   } catch(error){
     console.log(error);
-    err = document.querySelector(".error");
-    err.innerText = "Could not load image"
+    err.innerText = "Could not load image";
   }
   }
