@@ -35,7 +35,7 @@ function displayMatches() {
 			const regex = new RegExp(this.value, "gi");
 			const cityName = city.name.replace(
 				regex,
-				`<span class="hl">${this.value}</span>`
+				`<span class="hl">${this.value.toLowerCase()}</span>`
 			);
 
 			return `
