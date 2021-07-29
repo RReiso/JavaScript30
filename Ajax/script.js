@@ -1,12 +1,12 @@
 let URI = "https://api.teleport.org/api/urban_areas/";
 
 let cities = [];
-fetch(URI)
-	.then((response) => response.json())
-	.then((data) => {
-		cities = [...data._links["ua:item"]];
-    console.log(cities)
-	});
+
+  fetch(URI)
+    .then((response) => response.json())
+    .then((data) => {
+      cities = [...data._links["ua:item"]];
+    });
 
 const searchInput = document.querySelector(".search");
 const suggestions = document.querySelector(".suggestions");
@@ -30,7 +30,6 @@ function displayMatches() {
 	image.setAttribute("alt", "");
 
 	const matchArray = findMatches(this.value, cities);
-	// console.log(matchArray);
 	const html = matchArray
 		.map((city) => {
 			const regex = new RegExp(this.value, "gi");
@@ -61,23 +60,34 @@ function displayCityInfo(event) {
 		.replace(/\./g, "") //replace all dots
 		.split(/[\s,]+/)
 		.join("-");
-	getFullName(cityName);
+	getCityLocation(cityName);
 	getCityImage(cityName);
 }
 
-function getFullName(cityName) {
-	fetch(`${URI}slug:${cityName}/`)
-		.then((response) => response.json())
-		.then((data) => {
-			cityTitle.innerHTML = `${data.full_name}`;
-		});
+async function getCityLocation(cityName) {
+  try {
+    await fetch(`${URI}slug:${cityName}/`)
+      .then((response) => response.json())
+      .then((data) => {
+        cityTitle.innerHTML = `${data.full_name}`;
+      });
+  } catch(error){
+    console.log(error);
+    cityTitle.innerText = `Could not load location`;
+  }
 }
 
-function getCityImage(cityName) {
-	fetch(`${URI}slug:${cityName}/images/`)
-		.then((response) => response.json())
-		.then((data) => {
-			image.setAttribute("src", data.photos[0].image.mobile);
-			image.setAttribute("alt", `${cityName}`);
-		});
-}
+async function getCityImage(cityName) {
+  try{
+    await fetch(`${URI}slug:${cityName}/images/`)
+      .then((response) => response.json())
+      .then((data) => {
+        image.setAttribute("src", data.photos[0].image.mobile);
+        image.setAttribute("alt", `${cityName}`);
+      });
+  } catch(error){
+    console.log(error);
+    err = document.querySelector(".error");
+    err.innerText = "Could not load image"
+  }
+  }
