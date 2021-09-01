@@ -1,0 +1,47 @@
+html {
+	box-sizing: border-box;
+	font-size: 100%;
+  
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.25rem;
+	color: #423f43;
+	margin: 0;
+	padding: 0 1rem;
+}
+
+  .inbox {
+      width: fit-content;
+      margin: 1rem;
+      padding:1rem;
+      background: rgb(238, 237, 196);
+      border-radius: 5px;
+      box-shadow: 10px 10px 0 rgba(205, 212, 98, 0.534);
+    }
+
+      .item {
+      padding: 0.25rem;
+      border-bottom: 1px solid #c8ce98;
+    }
+
+     .item:last-child {
+      border-bottom: 0;
+    }
+
+     input:checked + label {
+      text-decoration: line-through;
+    }
+
+       label {
+      margin: 0;
+      padding: 0.25rem 1rem;
+      border-left: 1px solid #c8ce98;
+    }
