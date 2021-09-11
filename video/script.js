@@ -16,7 +16,6 @@ function togglePlay() {
 
 function updateButton() {
 	const icon = this.paused ? "►" : "❚ ❚";
-	console.log(icon);
 	toggle.textContent = icon;
 }
 
@@ -25,6 +24,8 @@ function skip() {
 }
 
 function handleRangeUpdate() {
+  console.log(this.name)
+  console.log(this.value)
 	video[this.name] = this.value;
 }
 
@@ -36,6 +37,10 @@ function handleProgress() {
 function scrub(e) {
 	const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
 	video.currentTime = scrubTime;
+}
+
+function setFullScreen() {
+	video.requestFullscreen();
 }
 
 /* Hook up the event listeners */
@@ -59,6 +64,3 @@ progress.addEventListener("mouseup", () => (mousedown = false));
 
 fullScreenBtn.addEventListener("click", setFullScreen);
 
-function setFullScreen() {
-	video.requestFullscreen();
-}
