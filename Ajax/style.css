@@ -5,7 +5,9 @@ html {
   font-weight: 200;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -46,7 +48,7 @@ input.search {
 .suggestions li {
   background: white;
   list-style: none;
-  border-bottom: 1px solid #D8D8D8;
+  border-bottom: 1px solid #d8d8d8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
   margin: 0;
   padding: 1rem;
@@ -58,12 +60,12 @@ input.search {
 
 .suggestions li:nth-child(even) {
   transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
-  background: linear-gradient(to bottom,  #ffffff 0%,#EFEFEF 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #efefef 100%);
 }
 
 .suggestions li:nth-child(odd) {
   transform: perspective(100px) rotateX(-3deg) translateY(3px);
-  background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);
+  background: linear-gradient(to top, #ffffff 0%, #efefef 100%);
 }
 
 span.population {
@@ -74,13 +76,13 @@ span.population {
   background: #ffc600;
 }
 
-.city-title{
+.city-title {
   font-size: 1.5rem;
   color: #eceaea;
   text-align: center;
 }
 
-.image{
+.image {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -91,16 +93,14 @@ img {
   max-height: 20rem;
   border-radius: 4px;
 }
-@media (min-width: 500px){
-  img{
-
+@media (min-width: 500px) {
+  img {
     max-height: 35rem;
   }
 }
 
-@media (min-width: 800px){
-  img{
-
+@media (min-width: 800px) {
+  img {
     max-height: 45rem;
   }
 }
